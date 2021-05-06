@@ -17,22 +17,22 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
     
     @Bean
-    public Docket docket() {
+    public Docket docket(){
         return new Docket(DocumentationType.SWAGGER_2)
-        .select()
-        .apis(RequestHandlerSelectors.basePackage("org.generation.blogPessoal.controller"))
-        .paths(PathSelectors.any())
-        .build()
-        .apiInfo(apiInfo());
+                    .select()
+                    .apis( RequestHandlerSelectors.basePackage("org.generation.blogPessoal.controller") )
+                    .paths(PathSelectors.any())
+                    .build()
+                    .apiInfo(apiInfo());
     }
 
-    private ApiInfo apiInfo() {
+    private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-        .title("Blog Pessoal")
-        .description("Api do projeto Blog Pessoal")
-        .version("1.0")
-        .contact(contact())
-        .build();
+                    .title("Blog Pessoal")
+                    .description("API do Projeto de blog pessoal")
+                    .version("1.0")
+                    .contact(contact())
+                    .build();
     }
 
     private Contact contact() {
