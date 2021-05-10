@@ -12,13 +12,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioService {
+public class UsuarioService  {
     
     @Autowired
     private UsuarioRepository repository;
 
     public Optional <Usuario> CadastrarUsuario(Usuario usuario) {
-        if (repository.findByUsuario(usuario.getUsuario()).isPresent()) {
+        if (repository.findByUsuario(usuario.getUsuario()).isPresent() && usuario.getId() == 0) {
             return null;
         }
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
